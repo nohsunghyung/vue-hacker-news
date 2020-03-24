@@ -16,16 +16,25 @@ export const router = new VueRouter({
       path : '/news',
       name : 'news',
       component: () => import('../views/newsView'),
+      meta : {
+        dataview : true
+      }
     },
     {
       path: '/jobs',
       name : 'jobs',
       component: () => import('../views/jobsView'),
+      meta: {
+        dataview: true
+      }
     },
     {
       path: '/ask',
       name : 'ask',
       component: () => import('../views/askView'),
+      meta: {
+        dataview: true
+      }
     },
     {
       path: '/user/:id',
@@ -42,7 +51,7 @@ export const router = new VueRouter({
 
 // 라우터 네비게이션
 router.beforeEach((to, from, next) => {
-  if (!to.params.id) {
+  if (to.meta.dataview) {
     bus.$emit('start:spinner');
     store.dispatch('FETCH_LIST', to.name)
     .then(() => {

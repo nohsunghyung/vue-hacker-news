@@ -7,7 +7,7 @@
 				</div>
 				<div class="title-area">
 					<template v-if="item.domain">
-						<a :href="item.url">{{ item.title }}</a>
+						<a :href="item.url" target="_blank">{{ item.title }}</a>
 					</template>
 					<template v-else>
 						<router-link :to="`/item/${item.id}`">
@@ -46,10 +46,10 @@ li {
 	display: flex;
 	align-items: center;
 	list-style: none;
-	padding: 10px 0;
+	padding: 25px 0;
 }
 li + li {
-	border-top: 1px solid #000;
+	border-top: 1px solid #ddd;
 }
 li a {
 	color: #666;
@@ -68,6 +68,7 @@ li a {
 }
 .user-name {
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 18px;
+  color: #222;
 }
 </style>
