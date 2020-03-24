@@ -32,28 +32,8 @@ export default {
 	computed : {
 		itemArray(){
 			return this.$store.state.list;
-			// const path = this.$route.path;
-
-			// if( path === '/news' ){
-			// 	return this.$store.state.news;
-			// } else if ( path === '/ask' ){
-			// 	return this.$store.state.ask;
-			// } else if ( path === '/jobs' ){
-			// 	return this.$store.state.jobs;
-			// }
 		},
 	},
-	created(){
-		// const path = this.$route.path;
-
-		// if( path === '/news' ){
-		// 	this.$store.dispatch('FETCH_NEWS');
-		// } else if ( path === '/ask' ){
-		// 	this.$store.dispatch('FETCH_ASK');
-		// } else if ( path === '/jobs' ){
-		// 	this.$store.dispatch('FETCH_JOBS');
-		// }
-	}
 }
 </script>
 
@@ -79,7 +59,9 @@ li a {
 	width: 80px;
 	height: 30px;
 	line-height: 30px;
+  font-weight: bold;
 	text-align: center;
+  color: #4ab984;
 }
 .title-area {
 	margin-left: 20px;

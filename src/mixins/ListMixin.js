@@ -5,15 +5,4 @@ export default {
 	mounted(){
 		bus.$emit('end:spinner');
 	}
-	// created(){
-	// 	bus.$emit('start:spinner');
-	// 	this.$store.dispatch('FETCH_LIST', this.$route.name)
-	// 	.then(() => {
-	// 		console.log(5);
-	// 		bus.$emit('end:spinner');
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log(error);
-	// 	});
-	// }
 }

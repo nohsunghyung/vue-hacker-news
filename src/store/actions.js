@@ -44,7 +44,8 @@ export default {
 	FETCH_ASK({ commit }){
 		return fetchAskList()
 		.then(({ data }) => {
-			commit('SET_ASK', data)
+      commit('SET_ASK', data);
+      return data;
 		})
 		.catch((error) => {
 			console.log(error);
@@ -64,14 +65,15 @@ export default {
 	
 	// async
 	async FETCH_LIST({ commit }, pageName) {
-		const response = await fetchList(pageName);
-		commit('SET_LIST', response.data);
-		return response;
+		const { data } = await fetchList(pageName);
+		commit('SET_LIST', data);
+		return data;
 	},
 	FETCH_USER({ commit }, userId){
 		return fetchUserInfo(userId)
 		.then(({ data }) => {
-			commit('SET_USER',data)
+      commit('SET_USER',data);
+      return data;
 		})
 		.catch((error) => {
 			console.log(error);
@@ -80,7 +82,8 @@ export default {
 	FETCH_ITEM({ commit }, itemId){
 		return fetchItemContent(itemId)
 		.then(({ data }) => {
-			commit('SET_ITEM',data)
+      commit('SET_ITEM',data);
+      return data;
 		})
 		.catch((error) => {
 			console.log(error);

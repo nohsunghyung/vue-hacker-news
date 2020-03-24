@@ -5,33 +5,36 @@ const config = {
 }
 
 function fetchNewsList(){
-    return axios.get(`${config.baseUrl}news/1.json`);
+  return axios.get(`${config.baseUrl}news/1.json`);
 }
 
 function fetchAskList() {
-    return axios.get(`${config.baseUrl}ask/1.json`);
+  return axios.get(`${config.baseUrl}ask/1.json`);
 }
 
 function fetchJobsList() {
-    return axios.get(`${config.baseUrl}jobs/1.json`);
+  return axios.get(`${config.baseUrl}jobs/1.json`);
 }
 
-async function fetchList(pageName) {
-	try {
-		// return await axios.get(`${config.baseUrl}${pageName}/1.json`);
-		const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
-		return response;
-	} catch (error) {
-		console.log(error);	
-	}
+function fetchList(pageName) {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
 }
+// async function fetchList(pageName) {
+// 	try {
+// 		// return await axios.get(`${config.baseUrl}${pageName}/1.json`);
+// 		const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+// 		return response;
+// 	} catch (error) {
+// 		console.log(error);	
+// 	}
+// }
 
 function fetchUserInfo(userId) {
-    return axios.get(`${config.baseUrl}user/${userId}.json`);
+  return axios.get(`${config.baseUrl}user/${userId}.json`);
 }
 
 function fetchItemContent(itemId) {
-    return axios.get(`${config.baseUrl}item/${itemId}.json`);
+  return axios.get(`${config.baseUrl}item/${itemId}.json`);
 }
 
 export {

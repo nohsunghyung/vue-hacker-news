@@ -20,11 +20,6 @@ export default {
 	props : {
 		info : Object,
 	},
-	// computed : {
-    //     userArray(){
-    //         return this.$store.state.user;
-    //     },
-	// },
 }
 </script>
 
