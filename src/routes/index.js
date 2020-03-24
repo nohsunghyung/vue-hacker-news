@@ -1,11 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import newsView from '../views/newsView';
-// import jobsView from '../views/jobsView';
-// import askView from '../views/askView';
-// import userView from '../views/userView';
-// import itemView from '../views/itemView';
-// import createListView from '../views/createListView.js';
 import bus from '../utils/bus.js';
 import { store } from '../store/index.js';
 
@@ -52,13 +46,25 @@ router.beforeEach((to, from, next) => {
     bus.$emit('start:spinner');
     store.dispatch('FETCH_LIST', to.name)
     .then(() => {
-      bus.$emit('end:spinner');
       next();
     })
     .catch((error) => {
       console.log(error);
     });
-  } else {
-    next();
+  } else if (to.name == 'item'){
+    bus.$emit('start:spinner');
+    store.dispatch('FETCH_ITEM',to.params.id)
+    .then(() => {
+      next();
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  } else if(to.name == 'user'){
+    bus.$emit('start:spinner');
+    store.dispatch('FETCH_USER',to.params.id)
+    .then(() => {
+      next();
+    })
   }
 })

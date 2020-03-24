@@ -16,5 +16,11 @@ export default {
 	},
 	SET_ITEM(state, data){
 		state.item = data;
-	}
+  },
+  clearUser(state){
+    state.user = {};
+  },
+  clearItem(state){
+    state.item = {};
+  }
 }

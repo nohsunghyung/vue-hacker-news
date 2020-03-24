@@ -69,15 +69,10 @@ export default {
 		commit('SET_LIST', data);
 		return data;
 	},
-	FETCH_USER({ commit }, userId){
-		return fetchUserInfo(userId)
-		.then(({ data }) => {
-      commit('SET_USER',data);
-      return data;
-		})
-		.catch((error) => {
-			console.log(error);
-		})
+	async FETCH_USER({ commit }, userId){
+		const { data } = await fetchUserInfo(userId)
+    commit('SET_USER',data);
+    return data;
 	},
 	FETCH_ITEM({ commit }, itemId){
 		return fetchItemContent(itemId)

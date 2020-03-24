@@ -1,5 +1,5 @@
 <template>
-    <div>
+  <div>
 		<user-profile :info="userArray">
 			<template slot="userName">
 				{{ userArray.id }}
@@ -11,11 +11,12 @@
 				{{ userArray.karma }}
 			</span>
 		</user-profile>
-    </div>
+  </div>
 </template>
 
 <script>
 import UserProfile from '../components/UserProfile';
+import ListMixin from '../mixins/ListMixin'
 export default {
 	components : {
 		UserProfile,
@@ -24,11 +25,8 @@ export default {
 		userArray(){
 			return this.$store.state.user;
 		}
-	},
-	created(){
-		const userId = this.$route.params.id;
-		this.$store.dispatch('FETCH_USER',userId);
-	}
+  },
+  mixins: [ListMixin]
 }
 </script>
 

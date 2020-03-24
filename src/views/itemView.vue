@@ -18,6 +18,7 @@
 <script>
 import UserProfile from '../components/UserProfile';
 import { mapGetters } from 'vuex';
+import ListMixin from '../mixins/ListMixin.js';
 export default {
 	components : {
 		UserProfile,
@@ -26,11 +27,8 @@ export default {
 		...mapGetters([
 			'fechedItem',
 		])
-	},
-	created(){
-		const itemId = this.$route.params.id;
-		this.$store.dispatch('FETCH_ITEM',itemId);
-	}
+  },
+  mixins: [ListMixin],
 }
 </script>
 
